@@ -18,6 +18,7 @@ export default function Footer() {
             <div className="w-8 h-8 rounded-full flex items-center justify-center text-white bg-primary">
               <RubElHizb className="w-4 h-4" />
             </div>
+
             <span className="font-bold font-display">
               أكاديمية الختمة الذهبية
             </span>
@@ -33,33 +34,72 @@ export default function Footer() {
         <div>
           <h4 className="font-bold mb-3 text-sm">تواصل معنا</h4>
 
-          <ul className="flex flex-col gap-2 text-sm opacity-70">
+          <ul className="flex flex-col gap-3 text-sm opacity-80">
             <li className="flex items-center gap-2">
-              <Phone className="w-3.5 h-3.5" />
-              ٠١٠٠ ٠٠٠ ٠٠٠٠
+              <Phone className="w-4 h-4 text-primary" />
+              <a
+                href="tel:01095767861"
+                dir="ltr"
+                className="hover:text-primary transition"
+              >
+                01095767861
+              </a>
             </li>
 
             <li className="flex items-center gap-2">
-              <Mail className="w-3.5 h-3.5" />
-              info@khatma-academy.com
+              <Mail className="w-4 h-4 text-primary" />
+              <a
+                href="mailto:info@khatma-academy.com"
+                className="hover:text-primary transition"
+              >
+                info@khatma-academy.com
+              </a>
             </li>
           </ul>
         </div>
 
-        {/* السوشيال */}
+        {/* وسائل التواصل */}
         <div>
           <h4 className="font-bold mb-3 text-sm">تابعنا</h4>
 
           <div className="flex gap-2">
-            {[MessageCircle, Globe, Share2, Send].map((Icon, i) => (
-              <a
-                key={i}
-                href="#"
-                className="w-9 h-9 rounded-full flex items-center justify-center border border-black/10 dark:border-white/20 transition hover:-translate-y-0.5"
-              >
-                <Icon className="w-4 h-4" />
-              </a>
-            ))}
+            {/* واتساب */}
+            <a
+              href="https://wa.me/201095767861"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp"
+              className="w-10 h-10 rounded-full flex items-center justify-center border border-black/10 dark:border-white/20 transition hover:-translate-y-1 hover:bg-green-500 hover:text-white"
+            >
+              <MessageCircle className="w-5 h-5" />
+            </a>
+
+            {/* الموقع */}
+            <a
+              href="#"
+              aria-label="Website"
+              className="w-10 h-10 rounded-full flex items-center justify-center border border-black/10 dark:border-white/20 transition hover:-translate-y-1 hover:bg-primary hover:text-white"
+            >
+              <Globe className="w-5 h-5" />
+            </a>
+
+            {/* مشاركة */}
+            <a
+              href="#"
+              aria-label="Share"
+              className="w-10 h-10 rounded-full flex items-center justify-center border border-black/10 dark:border-white/20 transition hover:-translate-y-1 hover:bg-primary hover:text-white"
+            >
+              <Share2 className="w-5 h-5" />
+            </a>
+
+            {/* تيليجرام */}
+            <a
+              href="#"
+              aria-label="Telegram"
+              className="w-10 h-10 rounded-full flex items-center justify-center border border-black/10 dark:border-white/20 transition hover:-translate-y-1 hover:bg-sky-500 hover:text-white"
+            >
+              <Send className="w-5 h-5" />
+            </a>
           </div>
         </div>
       </div>
