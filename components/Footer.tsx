@@ -1,4 +1,11 @@
-import { Facebook, Instagram, Mail, MessageCircle, Phone, Send } from "lucide-react";
+import {
+  FacebookIcon,
+  InstagramIcon,
+  Mail,
+  MessageCircle,
+  Phone,
+  Send,
+} from "lucide-react";
 import RubElHizb from "./RubElHizb";
 
 export default function Footer() {
@@ -30,7 +37,7 @@ export default function Footer() {
         <div>
           <h4 className="font-bold mb-3 text-sm">تابعنا</h4>
           <div className="flex gap-2">
-            {[MessageCircle, Facebook, Instagram, Send].map((Icon, i) => (
+            {[MessageCircle, FacebookIcon, InstagramIcon, Send].map((Icon, i) => (
               <a
                 key={i}
                 href="#"
