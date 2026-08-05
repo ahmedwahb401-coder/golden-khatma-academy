@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;500;700;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-bg text-[#1F2A24] dark:bg-bg-dark dark:text-[#EDF3F0] font-body transition-colors duration-500;
+}
+
+/* احترام تفضيل تقليل الحركة لأصحاب الاحتياجات الخاصة */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* تركيز واضح لدعم لوحة المفاتيح */
+:focus-visible {
+  outline: 2px solid #d4af37;
+  outline-offset: 2px;
+}
