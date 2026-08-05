@@ -1,8 +1,6 @@
 import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 
-// يُشغَّل هذا الكود على كل طلب (عبر middleware.ts) للحفاظ على جلسة المستخدم
-// محدّثة (تجديد الـ token تلقائياً)، وحماية مسارات لوحات التحكم.
 export async function updateSession(request: NextRequest) {
   let response = NextResponse.next({ request });
 
@@ -14,9 +12,27 @@ export async function updateSession(request: NextRequest) {
         getAll() {
           return request.cookies.getAll();
         },
-        setAll(cookiesToSet) {
-          cookiesToSet.forEach(({ name, value }) => request.cookies.set(name, value));
+
+        setAll(
+          cookiesToSet: {
+            name: string;
+            value: string;
+            options?: {
+              path?: string;
+              maxAge?: number;
+              expires?: Date;
+              httpOnly?: boolean;
+              secure?: boolean;
+              sameSite?: boolean | "lax" | "strict" | "none";
+            };
+          }[]
+        ) {
+          cookiesToSet.forEach(({ name, value }) =>
+            request.cookies.set(name, value)
+          );
+
           response = NextResponse.next({ request });
+
           cookiesToSet.forEach(({ name, value, options }) =>
             response.cookies.set(name, value, options)
           );
@@ -30,12 +46,16 @@ export async function updateSession(request: NextRequest) {
   } = await supabase.auth.getUser();
 
   const protectedPaths = ["/dashboard", "/admin"];
-  const isProtected = protectedPaths.some((p) => request.nextUrl.pathname.startsWith(p));
+
+  const isProtected = protectedPaths.some((p) =>
+    request.nextUrl.pathname.startsWith(p)
+  );
 
   if (isProtected && !user) {
     const url = request.nextUrl.clone();
     url.pathname = "/login";
     url.searchParams.set("redirect", request.nextUrl.pathname);
+
     return NextResponse.redirect(url);
   }
 
