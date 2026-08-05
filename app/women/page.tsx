@@ -44,8 +44,8 @@ export default async function WomenSectionPage() {
           </h1>
 
           <p className="max-w-lg opacity-75 leading-relaxed mb-9">
-            إذا كنتِ ترغبين في حفظ كتاب الله أو مراجعته أو إتقان تلاوته، فأنتِ في
-            المكان الصحيح. متابعة لكل طالبة، وإشراف محفّظات معتمدات.
+            إذا كنتِ ترغبين في حفظ كتاب الله أو مراجعته أو إتقان تلاوته، فأنتِ في المكان الصحيح.
+            متابعة لكل طالبة، وإشراف محفّظات معتمدات.
           </p>
 
           <Link
@@ -68,14 +68,15 @@ export default async function WomenSectionPage() {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-3 gap-5">
+        <div className="flex flex-wrap justify-center gap-6">
           {teachers?.map((t) => (
-            <TeacherCard
-              key={t.id}
-              name={t.full_name}
-              spec={t.specialty || t.ijazah || ""}
-              years={`${t.years_experience} سنوات خبرة`}
-            />
+            <div key={t.id} className="w-full sm:w-[340px]">
+              <TeacherCard
+                name={t.full_name}
+                spec={t.specialty || t.ijazah || ""}
+                years={`${t.years_experience} سنوات خبرة`}
+              />
+            </div>
           ))}
         </div>
       </section>
@@ -113,8 +114,7 @@ export default async function WomenSectionPage() {
           </h3>
 
           <p className="opacity-70 max-w-sm">
-            املئي نموذج التسجيل وسيتواصل معكِ فريقنا خلال 24 ساعة لتحديد مستواكِ
-            والموعد المناسب لكِ.
+            املئي نموذج التسجيل وسيتواصل معكِ فريقنا خلال 24 ساعة لتحديد مستواكِ والموعد المناسب.
           </p>
 
           <Link

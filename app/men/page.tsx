@@ -68,14 +68,15 @@ export default async function MenSectionPage() {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-3 gap-5">
+        <div className="flex flex-wrap justify-center gap-6">
           {teachers?.map((t) => (
-            <TeacherCard
-              key={t.id}
-              name={t.full_name}
-              spec={t.specialty || t.ijazah || ""}
-              years={`${t.years_experience} سنوات خبرة`}
-            />
+            <div key={t.id} className="w-full sm:w-[340px]">
+              <TeacherCard
+                name={t.full_name}
+                spec={t.specialty || t.ijazah || ""}
+                years={`${t.years_experience} سنوات خبرة`}
+              />
+            </div>
           ))}
         </div>
       </section>
