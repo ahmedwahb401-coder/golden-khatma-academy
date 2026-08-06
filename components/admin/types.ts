@@ -14,7 +14,11 @@ export type StudentRow = {
   preferred_time: "morning" | "afternoon" | "evening";
   status: "pending" | "active" | "paused" | "completed";
   created_at: string;
+
   user_id: string | null;
+
+  // اسم الحساب المرتبط
+  linked_user_name: string | null;
 };
 
 export const programLabel: Record<StudentRow["program"], string> = {
